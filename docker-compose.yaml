@@ -1,0 +1,12 @@
+version: "3.4"
+services:
+  jenkins:
+    build: ./Dockerfiles/jenkins
+    image: andrewgonzo/jenkins:latest
+    entrypoint: /bin/sh
+    stdin_open: true 
+    tty: true 
+    volumes:
+      - ./Dockerfiles/jenkins/jenkins_home:/var/jenkins_home
+    ports:
+      - 8080:8080
