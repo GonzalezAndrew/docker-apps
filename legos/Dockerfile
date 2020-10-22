@@ -1,4 +1,4 @@
-FROM ubuntu:18:04
+FROM ubuntu:18.04
 
 LABEL MAINTAINER="Andrew Gonzalez <andrewgonzo23@gmail.com>"
 
@@ -19,9 +19,10 @@ systemd-cron \
 sudo \
 iproute2 \
 unzip \
+curl \
 "
 
-ENV PIP_PACKAGEs="\
+ENV PIP_PACKAGES="\
 ansible \
 awscli \
 "
