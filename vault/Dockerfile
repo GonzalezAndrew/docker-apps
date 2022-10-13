@@ -1,4 +1,4 @@
-FROM vault:1.2.3
+FROM vault:1.12.0
 LABEL Maintainer="Andrew Gonzalez"
 COPY ./scripts/start-server.sh .
 COPY ./scripts/init-server.sh .

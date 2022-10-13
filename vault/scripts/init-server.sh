@@ -4,7 +4,7 @@ export VAULT_ADDR=http://127.0.0.1:8200
 
 check_seal() {
     status=$(vault status | grep 'Initialized' | xargs | awk -F ' ' '{print $2}')
-    if "$status" = 'true'; then 
+    if [ "$status" = 'true' ]; then 
         return 1
     else 
         return 0
