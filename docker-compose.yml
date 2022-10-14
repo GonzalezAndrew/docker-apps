@@ -1,5 +1,5 @@
 version: "3.4"
-services: 
+services:
     jenkins:
         container_name: jenkins
         image: andrewgonzo/jenkins:1.0.0
@@ -8,25 +8,25 @@ services:
             - ./jenkins/jenkins_home:/var/jenkins_home
         ports:
             - 8080:8080
-    vault: 
-        container_name: vault 
+    vault:
+        container_name: vault
         image: andrewgonzo/vault:1.0.0
         build: ./vault
         environment:
-            - VAULT_ADDR=http://127.0.0.1:8200 
-        ports: 
-            - 8200:8200 
+            - VAULT_ADDR=http://127.0.0.1:8200
+        ports:
+            - 8200:8200
         volumes:
             - ./vault/volumes:/vault
-            - ./vault/volumes/logs:/vault/logs 
-            - ./vault/volumes/file:/vault/file 
+            - ./vault/volumes/logs:/vault/logs
+            - ./vault/volumes/file:/vault/file
             - ./vault/volumes/config:/vault/config
-            - ./vault/volumes/data:/vault/data  
-        entrypoint: 
+            - ./vault/volumes/data:/vault/data
+        entrypoint:
             - ./entrypoint.sh
         command:
-            - start 
+            - start
         cap_add:
-            - IPC_LOCK 
+            - IPC_LOCK
         stdin_open: true
-        tty: true 
+        tty: true
